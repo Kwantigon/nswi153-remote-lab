@@ -1,3 +1,5 @@
+import { Button } from '@mui/material';
+
 export function Increase({counter, setCounter}) {
 	function buttonClick() {
 		console.log("Increasing the counter.");
@@ -7,7 +9,11 @@ export function Increase({counter, setCounter}) {
 
 	return (
 		<div>
-			<button onClick={buttonClick}>Let's go up!</button>
+			<Button onClick={buttonClick}
+					variant="contained"
+					color="error">
+				Let's go up!
+			</Button>
 			<label>{counter}</label>
 		</div>
 	);

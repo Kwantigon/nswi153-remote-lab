@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from '@mui/material';
 
 export function LabelTextButton() {
   const [label, setLabel] = useState("Label value");
@@ -16,7 +17,7 @@ export function LabelTextButton() {
       <Label value={label}/><br/>
       <TextInput value={text}
         inputHandler={(e) => setText(e.target.value)}/><br/>
-      <Button clickHandler={() => handleClick()}/>
+      <MyButton clickHandler={() => handleClick()}/>
     </div>
   );
 }
@@ -34,10 +35,11 @@ function TextInput({value, inputHandler}) {
   );
 }
 
-function Button({clickHandler}) {
+function MyButton({clickHandler}) {
   return (
-    <button onClick={clickHandler}>
+    <Button onClick={clickHandler}
+			variant="contained" size="large">
       Click me
-    </button>
+    </Button>
   );
 }
