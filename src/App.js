@@ -5,32 +5,37 @@ import { Hello } from "./pages/hello.js";
 import { LabelTextButton } from "./pages/label.js";
 import { Decrease } from "./pages/decrease.js";
 import { Increase } from "./pages/increase.js";
+import { Grid } from "@mui/material";
 
 function App() {
 	const [counter, setCounter] = useState(0);
 	return (
-		<BrowserRouter>
-			<div className="NavBar">
-				<ul>
-					<li>
-						<Link to="/">Greeting</Link>
-					</li>
-					<li>
-						<Link to="/label">The label</Link>
-					</li><li>
-						<Link to="/decrease">Decrease the counter</Link>
-					</li><li>
-						<Link to="/increase">Increase the counter</Link>
-					</li>
-				</ul>
-				<Routes>
-					<Route path="/" element={<Hello/>}></Route>
-					<Route path="/label" element={<LabelTextButton/>}></Route>
-					<Route path="/decrease" element={<Decrease counter={counter} setCounter={setCounter}/>}></Route>
-					<Route path="/increase" element={<Increase counter={counter} setCounter={setCounter}/>}></Route>
-				</Routes>
-			</div>
-		</BrowserRouter>
+		<Grid container spacing={2}>
+			<BrowserRouter>
+				<Grid item xs={12} md={6}>
+					<ul>
+						<li>
+							<Link to="/">Greeting</Link>
+						</li>
+						<li>
+							<Link to="/label">The label</Link>
+						</li><li>
+							<Link to="/decrease">Decrease the counter</Link>
+						</li><li>
+							<Link to="/increase">Increase the counter</Link>
+						</li>
+					</ul>
+				</Grid>
+				<Grid item xs={12} md={6}>
+					<Routes>
+						<Route path="/" element={<Hello/>}></Route>
+						<Route path="/label" element={<LabelTextButton/>}></Route>
+						<Route path="/decrease" element={<Decrease counter={counter} setCounter={setCounter}/>}></Route>
+						<Route path="/increase" element={<Increase counter={counter} setCounter={setCounter}/>}></Route>
+					</Routes>
+				</Grid>
+			</BrowserRouter>
+		</Grid>
 	);
 }
 
